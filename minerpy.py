@@ -51,3 +51,11 @@ class Site:
                 return linkList
             except Exception as e:
                 print(f"Failed To Retrieve The Links: {e}")
+    
+    def getText(self):
+         if self.connection():
+            try:
+                soup = BeautifulSoup(self.response.text, 'lxml')
+                return soup.get_text()
+            except Exception as e:
+                print(f"Failed To Retrieve Text: {e}")
