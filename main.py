@@ -24,6 +24,7 @@ print("""
     3> Get 'robot.txt'
     4> Get Source Code
     5> Get Links
+    6> Get Text
 """)
 
 usrAction = int(input('> '))
@@ -43,3 +44,5 @@ elif usrAction == 5:
     for links in usrSiteClass.getLinks():
         print(f'{count}. {links}')
         count+=1
+elif usrAction == 6:
+    print(usrSiteClass.getText())
