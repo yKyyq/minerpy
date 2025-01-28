@@ -18,31 +18,35 @@ $$ | $$ | $$ |$$ |$$ |  $$ |\$$$$$$$\ $$ |      $$$$$$$  |\$$$$$$$ |
 print('Enter Website')
 usrInput = input('> ')
 
-print("""
-    1> Show URL
-    2> Test Connection
-    3> Get 'robot.txt'
-    4> Get Source Code
-    5> Get Links
-    6> Get Text
-""")
+while(True):
+    print("""
+        1> Show URL
+        2> Test Connection
+        3> Get 'robot.txt'
+        4> Get Source Code
+        5> Get Links
+        6> Get Text
+    """)
 
-usrAction = int(input('> '))
+    usrAction = int(input('> '))
 
-usrSiteClass = Site(usrInput)
+    usrSiteClass = Site(usrInput)
 
-if usrAction == 1:
-    print(f'Website: {usrSiteClass.show()}')
-elif usrAction == 2:
-    usrSiteClass.connection()
-elif usrAction == 3:
-    print(usrSiteClass.getRobots())
-elif usrAction == 4:
-    print(usrSiteClass.sourceCode())
-elif usrAction == 5:
-    count = 1
-    for links in usrSiteClass.getLinks():
-        print(f'{count}. {links}')
-        count+=1
-elif usrAction == 6:
-    print(usrSiteClass.getText())
+    if usrAction == 1:
+        print(f'Website: {usrSiteClass.show()}')
+    elif usrAction == 2:
+        usrSiteClass.connection()
+    elif usrAction == 3:
+        print(usrSiteClass.getRobots())
+    elif usrAction == 4:
+        print(usrSiteClass.sourceCode())
+    elif usrAction == 5:
+        count = 1
+        for links in usrSiteClass.getLinks():
+            print(f'{count}. {links}')
+            count+=1
+    elif usrAction == 6:
+        print(usrSiteClass.getText())
+    else:
+        print("Invalid Command!")
+        exit()
