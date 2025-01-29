@@ -26,6 +26,7 @@ while(True):
         4> Get Source Code
         5> Get Links
         6> Get Text
+        7> Check For Certifications
     """)
 
     usrAction = int(input('> '))
@@ -47,6 +48,8 @@ while(True):
             count+=1
     elif usrAction == 6:
         print(usrSiteClass.getText())
+    elif usrAction == 7:
+        print(usrSiteClass.certCheck())
     else:
         print("Invalid Command!")
         exit()
