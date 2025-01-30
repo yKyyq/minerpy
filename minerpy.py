@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import time
 
 class Site:
     def __init__(self, website):
@@ -70,3 +71,12 @@ class Site:
         except requests.exceptions.RequestException as e:
             print(f"SSL Check Failed: {e}")
             return False
+    
+    def getResponseTime(self):
+        try:
+            startTime = time.time()
+            response = requests.get(self.website)
+            elapsedTime = time.time() - startTime
+            return f"{elapsedTime:.2f} seconds"
+        except requests.exceptions.RequestException as e:
+            print(f"Failed To Measure Response Time: {e}")
