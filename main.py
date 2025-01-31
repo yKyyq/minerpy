@@ -26,8 +26,9 @@ while(True):
         4> Get Source Code
         5> Get Links
         6> Get Text
-        7> Check For Certifications
-        8> Get Response Time
+        7> Get Response Time
+        8> Check For Certifications
+        9> Check For Cookies 
     """)
 
     usrAction = int(input('> '))
@@ -53,6 +54,8 @@ while(True):
         print(usrSiteClass.certCheck())
     elif usrAction == 8:
         print(usrSiteClass.getResponseTime())
+    elif usrAction == 9:
+        print(usrSiteClass.checkForCookies())
     else:
         print("Invalid Command!")
         exit()
