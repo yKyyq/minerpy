@@ -61,6 +61,15 @@ class Site:
             except Exception as e:
                 print(f"Failed To Retrieve Text: {e}")
 
+    def getResponseTime(self):
+        try:
+            startTime = time.time()
+            response = requests.get(self.website)
+            elapsedTime = time.time() - startTime
+            return f"{elapsedTime:.2f} seconds"
+        except requests.exceptions.RequestException as e:
+            print(f"Failed To Measure Response Time: {e}")
+
     def certCheck(self):
         try:
             response = requests.get(self.website, timeout=10)
@@ -72,11 +81,6 @@ class Site:
             print(f"SSL Check Failed: {e}")
             return False
     
-    def getResponseTime(self):
-        try:
-            startTime = time.time()
-            response = requests.get(self.website)
-            elapsedTime = time.time() - startTime
-            return f"{elapsedTime:.2f} seconds"
-        except requests.exceptions.RequestException as e:
-            print(f"Failed To Measure Response Time: {e}")
+    def checkForCookies(self):
+        if self.connection():
+            return self.response.cookies.get_dict()
